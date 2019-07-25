@@ -1,5 +1,5 @@
-﻿using BLG.AspNetCore;
-using BLG.AspNetCore.Filters;
+﻿using [custom];
+using [custom].Filters;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
