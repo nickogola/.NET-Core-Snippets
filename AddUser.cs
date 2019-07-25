@@ -18,7 +18,7 @@ namespace [custom]
     classes or modules of similar functionality together. (you'll notice mutiple classes within the file)
     I use nuget packages such as MediatR to route calls between the Controller and this domain class and 
     FluentValidation to validate input.
-    Besides the 2 mentioned, I also have custom nuget package [custom].AspNetCoe nuget pkg that I 
+    Besides the 2 mentioned, I also have custom nuget package [custom].AspNetCore nuget pkg that I 
     inject the same way accross multiple projects
     This custom package contains Data Access Layer, Security, Logging an Extensions shared amongst the applications
     this saves me time when setting up new projects.
