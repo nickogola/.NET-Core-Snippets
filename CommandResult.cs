@@ -1,5 +1,8 @@
 ﻿namespace [custom]
 {
+  /*
+    This class abstracts the different kind of responses that are returned to the Views
+    */
     public class CommandResult
     {
         private CommandResult() { }
