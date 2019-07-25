@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace [custom]
 {
+/*
+This base class defines all the calls made by Dapper to the database.
+*/
     public abstract class DbContextBase : IDbContext
     {
         private SqlConnection _connection;
