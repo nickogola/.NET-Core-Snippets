@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BLG.IT.Web.Features.BLGUserAdmin
+namespace [custom].BLGUserAdmin
 {
-    [Authorize(Policy = Constants.BLGITBLGUserAdminSecurityPolicy)]
+    [Authorize(Policy = Constants.[custom]SecurityPolicy)]
     public class BLGUserAdminController : Controller
     {
         private readonly IMediator _mediator; // MediatR library routes data from this controller to AddUser.cs
