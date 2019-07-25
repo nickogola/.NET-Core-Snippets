@@ -20,7 +20,7 @@ namespace [custom]
             _mediator = mediator; //mediatr injected
         }
 
-        public async Task<IActionResult> GetUsers(GetUsers.Query query)
+        public async Task<IActionResult> GetUsers(GetUsers.Query query) // this action result similar to a view returns a users collection model to the GetUsers page
         {
             var model = await _mediator.Send(query);
             return View(model);
