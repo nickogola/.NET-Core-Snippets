@@ -1,5 +1,5 @@
-﻿using BLG.AspNetCore;
-using BLG.AspNetCore.Data;
+﻿using [custom];
+using [custom].Data;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BLG.IT.Web.Features.BLGUserAdmin
+namespace [custom]
 {
-    public class Detail
+    public class UserDetail
     {
         public class Query : IRequest<Model>
         {
@@ -107,19 +107,19 @@ SELECT ID
         ,Color
         ,CalendarName
         ,PhoneNumber
-FROM sec.AppUser WHERE ID = @ID
+FROM [DummyUserTable] WHERE ID = @ID
 
 SELECT up.ID
         ,up.AppUserID
         ,up.AppPermissionID
 	    ,p.[Name]
-FROM [CSM_APP].[sec].[AppUserPermission] up
+FROM [DummyPermissionTable] up
 INNER JOIN sec.AppPermission p on up.AppPermissionID = p.ID
 WHERE AppUserID = @ID
 ORDER BY p.[Name]";
 
 
-                var multi = await _context.QueryMultiple(sql, new { ID = request.ID });
+                var multi = await _context.QueryMultiple(sql, new { ID = request.ID }); // Dapper has Query multiple calls for multiple queries
                 var model = multi.Read<Model>().FirstOrDefault();
                 var userPermissions = multi.Read<AppUserPermission>().ToList();
                 model.UserPermissions = userPermissions;
@@ -138,7 +138,7 @@ SELECT ID
     ,IsActive
     ,Title
     ,EmailAddress
-FROM sec.AppUser WHERE ID = @ID";
+FROM [DummyUserTable] WHERE ID = @ID";
 
                 var query = await _context.Query<AppUser>(
                    sql,
