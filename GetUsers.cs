@@ -1,5 +1,5 @@
-﻿using BLG.AspNetCore;
-using BLG.AspNetCore.Data;
+﻿using  [custom].AspNetCore;
+using  [custom].AspNetCore.Data;
 using MediatR;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
