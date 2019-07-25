@@ -22,6 +22,12 @@ namespace [custom]
     inject the same way accross multiple projects
     This custom package contains Data Access Layer, Security, Logging an Extensions shared amongst the applications
     this saves me time when setting up new projects.
+    
+    More information about CQS can be found here:
+    https://www.dotnetcurry.com/patterns-practices/1461/command-query-separation-cqs
+    
+    Information about the MediatR library can be found here
+    https://ardalis.com/using-mediatr-in-aspnet-core-apps
 
     Due to NDA I've hidden a few parts of the code
 
