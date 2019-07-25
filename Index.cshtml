@@ -1,4 +1,4 @@
-﻿@model BLG.IT.Web.Features.BLGUserAdmin.Index.Model
+﻿@model [custom].GetUsers.Model
 
 <div class="row">
     <div class="col-12 ml-auto">
@@ -6,7 +6,7 @@
             <div class="card-header">
                 <div class="row align-items-center">
                     <div class="col-md-9 col-sm-9">
-                        <h5 class="m-0"><i class="fas fa-users"></i> BLG Users</h5>
+                        <h5 class="m-0"><i class="fas fa-users"></i> Users</h5>
                     </div>
                     <div class="col-md-2 col-sm-2">
                         <form asp-action="Index" method="get">
@@ -16,7 +16,7 @@
                         </form>
                     </div>
                     <div class="col-md-1 col-sm-1 text-right">
-                        <a asp-action="Add" asp-controller="BLGUserAdmin" data-target="#modalMedium" data-toggle="modal" class="btn btn-primary btn-sm">
+                        <a asp-action="AddUser" asp-controller="UserAdmin" data-target="#modalMedium" data-toggle="modal" class="btn btn-primary btn-sm">
                             Add User <i class="fas fa-plus-circle"></i>
                         </a>
               
@@ -47,7 +47,6 @@
                                 <td class="align-middle">@user.Role</td>
                                 <td class="align-middle text-center">@user.Title</td>
                                 <td class="align-middle text-center">@user.IsActive</td>
-                                <td class="align-middle text-center" @user.ColorCSS>@Html.Raw(user.Color)</td>
                                 <td class="align-middle text-center">
                                     <a asp-action="Detail" class="btn btn-primary btn-sm" asp-route-id="@user.ID">View/Edit <i class="fa fa-edit fa-2" aria-hidden="true"></i></a>
                                 </td>
@@ -79,7 +78,7 @@
             this.form.submit();
         });
 
-        $('#users-table').DataTable({
+        $('#users-table').DataTable({ // datatable library sorts users in a table, adds sort and search capability
             "pagingType": "full_numbers",
             "order": [[0, "asc"], [1, "asc"]],
             "iDisplayLength": 25,
