@@ -1,0 +1,109 @@
+﻿@model BLG.IT.Web.Features.BLGUserAdmin.Detail.Model
+
+<div class="card mb-3">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h5 class="m-0"><i class="fas fa-user"></i> User Info</h5>
+            </div>
+            <div class="col text-right">
+                <a asp-action="Edit" asp-route-id="@Model.ID" data-target="#modalMedium" data-toggle="modal" class="btn btn-primary btn-sm">
+                    Edit User <i class="fa fa-edit"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="form-row">
+            <label asp-for="FirstName" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext">@Model.FirstName</p>
+            </div>
+            <label asp-for="Color" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext" @Model.ColorCSS>@Model.Color</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <label asp-for="LastName" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext">@Model.LastName</p>
+            </div>
+            <label asp-for="EmailAddress" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext">@Model.EmailAddress</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <label asp-for="Role" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext">@Model.Role</p>
+            </div>
+            <label asp-for="CalendarName" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext">@Model.CalendarName</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <label asp-for="Title" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext">@Model.Title</p>
+            </div>
+            <label asp-for="PhoneNumber" class="col-form-label col-2  h6"></label>
+            <div class="col-4">
+                <p class="form-control-plaintext">@Model.PhoneNumber</p>
+            </div>
+        </div>
+        <div class="form-row">
+            <label asp-for="DisplayIsActive" class="col-form-label col-2  h6"></label>
+            <div class="col-8">
+                <p class="form-control-plaintext">@Model.DisplayIsActive</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h5 class="m-0"><i class="fas fa-key"></i> User Permissions</h5>
+            </div>
+            <div class="col text-right">
+                <a asp-action="AddPermission" asp-route-id="@Model.ID" data-target="#modalMedium" data-toggle="modal" class="btn btn-primary btn-sm">
+                    Add Permission <i class="fas fa-plus-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table-roles table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Permission</th>
+                    <th class="text-center">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var permission in Model.UserPermissions)
+                {
+                    <tr>
+                        <td class="align-middle text-center">@permission.Name</td>
+                        <td class="align-middle text-center">
+                           
+                            <a asp-action="DeletePermission" asp-route-id="@permission.ID" data-target="#modalMedium" data-toggle="modal" class="btn btn-outline-primary btn-sm">
+                                Delete Permission <i class="fas fa-minus-circle"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade blg-modal" id="modalMedium" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+</div>
