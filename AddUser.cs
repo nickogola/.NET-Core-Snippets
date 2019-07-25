@@ -23,7 +23,7 @@ namespace [custom]
     This custom package contains Data Access Layer, Security, Logging an Extensions shared amongst the applications
     this saves me time when setting up new projects.
 
-    Due to NDA ive hidden a few parts of the code
+    Due to NDA I've hidden a few parts of the code
 
     Please feel free to reach out to me if you find this useful or would like to discuss further.
     */
