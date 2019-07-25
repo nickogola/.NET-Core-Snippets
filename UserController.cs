@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace [custom].BLGUserAdmin
+namespace [custom]
 {
     [Authorize(Policy = Constants.[custom]SecurityPolicy)]
     public class BLGUserAdminController : Controller
@@ -20,7 +20,12 @@ namespace [custom].BLGUserAdmin
             _mediator = mediator; //mediatr injected
         }
 
-    
+        public async Task<IActionResult> GetUsers(GetUsers.Query query)
+        {
+            var model = await _mediator.Send(query);
+            return View(model);
+        }
+        
         public async Task<IActionResult> Add(Add.Query query)
         {
             var model = await _mediator.Send(query);
